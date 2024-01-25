@@ -1,0 +1,16 @@
+################################################################
+# Definitions needed for tar releases
+# This part is automatically generated
+################################################################
+REPO_REVISION := 7
+NEWGRF_VERSION := 7
+REPO_HASH :=
+REPO_VERSION_STRING := 0.1.7
+REPO_TITLE := xUSSR Rails Europa Redux 0.1.7
+REPO_DATE := 20240125
+REPO_BRANCH := 
+REPO_MODIFIED := 
+REPO_TAGS    := 0.1.7
+HG := 
+GIT := :
+PYTHON := :

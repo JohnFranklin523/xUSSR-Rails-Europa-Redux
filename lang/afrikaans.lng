@@ -1,0 +1,103 @@
+##grflangid 0x1b
+##plural 0
+##gender male
+# begin main block
+#
+# ------------------------ General strings -------------------------------------
+#
+#
+# ------------------------ PARAMS AND PARAMS MENU ------------------------------
+#
+#
+# ------------------------ Steam locomotives -----------------------------------
+#
+#
+# ------------------------ Diesel locomotives ----------------------------------
+#
+UNUSED_STR_LONGNAME_TEM2  :TEM2 (Diesel)
+#
+# ------------------------ Electric locomotives --------------------------------
+#
+#
+# ------------------------ DMU -------------------------------------------------
+#
+STR_LONGNAME_AS1A  :AS1A (Spoorkar) "Tarakanchik" (Diesel)
+#
+# ------------------------ EMU -------------------------------------------------
+#
+#
+# ------------------------ Coach -----------------------------------------------
+#
+#
+# ------------------------ Freight wagons --------------------------------------
+#
+#
+# ------------------------ Purchase hint templates -----------------------------
+#
+#
+# ------------------------ Purchase hint templates - sections ------------------
+#
+#
+# ------------------------ MU Sections -----------------------------------------
+#
+#
+# ------------------------ Purchase hint templates - engine types --------------
+#
+#
+# ------------------------ Purchase hint templates - coach types ---------------
+#
+#
+# ------------------------ Purchase hint templates - wagon types ---------------
+#
+#
+# ------------------------ Purchase hint templates - factory names -------------
+#
+#
+# ------------------------ Purchase hint templates - sub-types -----------------
+#
+#
+# ------------------------ Purchase hint special texts -------------------------
+#
+#
+# ------------------------ CallBacks - Start/Stop ------------------------------
+#
+STR_WRONG_STRUCTURE_OF_TRAIN_3D          :Verkeerde struktuur van die trein. Behoort {DKGREEN}M-[0-1C]-M{WHITE} te wees
+STR_WRONG_STRUCTURE_OF_TRAIN_4D          :Verkeerde struktuur van die trein. Behoort {DKGREEN}M-[0-2C]-M{WHITE} te wees
+STR_WRONG_STRUCTURE_OF_TRAIN_6D          :Verkeerde struktuur van die trein. Behoort {DKGREEN}M-[0-4C]-M{WHITE} te wees
+UNUSED_STR_WRONG_STRUCTURE_OF_TRAIN_6DN  :Verkeerde struktuur van die trein. Behoort {DKGREEN}M-[0-4C]-M{WHITE}, {DKGREEN}M-[0-4C]-N{WHITE} or {DKGREEN}N-[0-4C]-M{WHITE} te wees
+#
+# ------------------------ CallBacks - Attach wagon ----------------------------
+#
+#
+# ------------------------ Railways based liveries -----------------------------
+#
+#
+# ------------------------ Depot based liveries --------------------------------
+#
+UNUSED_STR_REFIT_RZD_TCH22_NOVOMOSKOVSK  :, TCH-22 Novomoskovsk
+#
+# ------------------------ Factory based liveries ------------------------------
+#
+#
+# ------------------------ Special liveries ------------------------------------
+#
+#
+# ------------------------ Model based liveries --------------------------------
+#
+#
+# ------------------------ Name based liveries ---------------------------------
+#
+#
+# ------------------------ Colour based liveries -------------------------------
+#
+STR_REFIT_TTD_05  :, RAL 7009 Groen grys
+STR_REFIT_TTD_4B  :, RAL 8001 Ochre bruin
+#
+# ------------------------ Cargoes ---------------------------------------------
+#
+#
+# ------------------------ Rail types ------------------------------------------
+#
+#
+# ------------------------ Other -----------------------------------------------
+#

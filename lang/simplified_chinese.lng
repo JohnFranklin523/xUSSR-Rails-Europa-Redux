@@ -1,0 +1,371 @@
+##grflangid 0x56
+##plural 0
+# begin main block
+#
+# ------------------------ General strings -------------------------------------
+#
+STR_EMPTY                 :
+STR_GRF_RAILS_DESC        :{GOLD}xUSSR 通用轨道包{}{BLACK}xUSSR 通用轨道包改编自 xUSSR Rails Set, 增加不同轨距与电压 - 准轨 25/15kV 交流 / 3/1.5kV 直流 / 3/4 轨供电, 宽轨 25kV 交流 / 3kV 直流 / 第三轨供电, 窄轨 交流 / 直流 / 第三轨供电.{}{}{RED}当所有轨道类型启用时, 请勿与其他轨道包共用, 因为所有轨道槽均被占用.{}{}{BLACK}John Franklin 改编于 2024年1月. {}License: CC-BY-NC-SA 3.0 for GRF Code and Graphics, GPL v2 for Makefile system and tranlations.{}Copyright (C) 2020-2023 by The xUSSR Railway Set developers team.
+STR_GRF_RAILS_NAME        :xUSSR 通用轨道包
+STR_MIN_OPENTTD_VERSION   :13.4
+STR_REQUIRES_XUSSR_RAILS  :xUSSR Rails Set recommended
+STR_USE_ENGINE_POOL       :Enable multiple NewGRF engine sets = on
+STR_GRF_URL               :https://www.tt-forums.net/viewtopic.php?t=90219
+#
+# ------------------------ PARAMS AND PARAMS MENU ------------------------------
+#
+
+STR_PARAM_RAIL_NAME :使用非电化准轨
+STR_PARAM_RAIL_DESC :使用非电化准轨.
+STR_PARAM_ELRL_NAME :使用电气化准轨
+STR_PARAM_ELRL_DESC :使用不同电压的准轨.
+
+STR_PARAM_3RDR_4THR_NAME :使用第三/四轨供电准轨
+STR_PARAM_3RDR_4THR_DESC :使用第三/四轨供电准轨.
+
+STR_PARAM_BROAD_RAIL_NAME       :使用非电化宽轨
+STR_PARAM_BROAD_RAIL_DESC       :使用非电化宽轨.
+STR_PARAM_BROAD_ELRL_NAME       :使用电化宽轨
+STR_PARAM_BROAD_ELRL_DESC       :使用不同电压的宽轨
+
+STR_PARAM_BROAD_3RDR_NAME       :使用第三轨供电宽轨
+STR_PARAM_BROAD_3RDR_DESC       :使用第三轨供电宽轨.
+
+STR_PARAM_NGRL_NAME       :使用非电化窄轨
+STR_PARAM_NGRL_DESC       :使用非电化窄轨.
+
+STR_PARAM_ELNG_NAME       :使用电气化窄轨
+STR_PARAM_ELNG_DESC       :使用不同电压的窄轨.
+
+STR_PARAM_narrow_3RDR_NAME       :使用第三轨供电窄轨
+STR_PARAM_narrow_3RDR_DESC       :使用第三轨供电窄轨.
+
+STR_NONE        :无
+STR_25AC        :25kV 交流
+STR_15AC        :15kV 交流
+STR_AC          :所有交流
+STR_3DC         :3kV 直流
+STR_25AC3DC     :25kV 交流 / 3kV 直流
+STR_15AC3DC     :15kV 交流 / 3kV 直流
+STR_AC3DC       :所有交流 / 3kV 直流
+STR_15DC        :1.5kV 交流
+STR_25AC15DC    :25kV 交流 / 1.5kV 直流
+STR_15AC15DC    :15kV 交流 / 1.5kV 直流
+STR_AC15DC      :所有交流 / 1.5kV 直流
+STR_DC          :所有直流
+STR_25ACDC      :25kV 交流 / 所有直流
+STR_15ACDC      :15kV 交流 / 所有直流
+STR_ALL         :全部
+STR_3RDR        :第三轨供电
+STR_4THR        :第四轨供电
+
+STR_PARAM_CONSTRUCTION_COST_NAME       :建设费用
+STR_PARAM_CONSTRUCTION_COST_DESC       :调整建设费用至默认的 2^n 倍.
+STR_PARAM_MAINTENANCE_COST_NAME        :维护费用
+STR_PARAM_MAINTENANCE_COST_DESC        :调整维护费用至默认的 2^n 倍.
+
+
+#
+# ------------------------ Names -----------------------------------------------
+#
+STR_NAME_IN_GROUP              :{PUSH_COLOUR}{STRING} {WHITE}>>>{POP_COLOUR} {STRING}
+UNUSED_STR_NAME_GRAY           :{PUSH_COLOUR}{GRAY}{STRING}{POP_COLOUR}
+UNUSED_STR_NAME_IN_GROUP_GRAY  :{STRING} >>> {PUSH_COLOUR}{GRAY}{STRING}{POP_COLOUR}
+#
+# ------------------------ Rail types ------------------------------------------
+#
+STR_ER15AC0_MENU              :{LTBLUE}15kV 交流供电低速准轨
+STR_ER15AC0_TOOLBAR           :15kV 交流供电低速准轨
+STR_ER15AC1_MENU              :{LTBLUE}15kV 交流供电中速准轨
+STR_ER15AC1_TOOLBAR           :15kV 交流供电中速准轨
+STR_ER15AC2_MENU              :{LTBLUE}15kV 交流供电干线准轨
+STR_ER15AC2_TOOLBAR           :15kV 交流供电干线准轨
+STR_ER15AC3_MENU              :{LTBLUE}15kV 交流供电高速准轨
+STR_ER15AC3_TOOLBAR           :15kV 交流供电高速准轨
+STR_ER15AC4_MENU              :{LTBLUE}15kV 交流供电不限速准轨
+STR_ER15AC4_TOOLBAR           :15kV 交流供电不限速准轨
+STR_ER15AC_AUTOREPLACE        :15kV 交流供电准轨列车
+STR_ER15AC_BUILD_CAPTION      :新 15kV 交流供电准轨列车
+STR_ER15AC_NEW_ENGINE         :15kV 交流供电准轨列车
+STR_ER15DC                    :{PUSH_COLOUR}{CREAM}1.5kV 直流{POP_COLOUR}
+STR_ER15DC0_MENU              :{CREAM}1.5kV 直流供电低速准轨
+STR_ER15DC0_TOOLBAR           :1.5kV 直流供电低速准轨
+STR_ER15DC1_MENU              :{CREAM}1.5kV 直流供电中速准轨
+STR_ER15DC1_TOOLBAR           :1.5kV 直流供电中速准轨
+STR_ER15DC2_MENU              :{CREAM}1.5kV 直流供电干线准轨
+STR_ER15DC2_TOOLBAR           :1.5kV 直流供电干线准轨
+STR_ER15DC3_MENU              :{CREAM}1.5kV 直流供电高速准轨
+STR_ER15DC3_TOOLBAR           :1.5kV 直流供电高速准轨
+STR_ER15DC_AUTOREPLACE        :1.5kV 直流供电准轨列车
+STR_ER15DC_BUILD_CAPTION      :新 1.5kV 直流供电准轨列车
+STR_ER15DC_NEW_ENGINE         :1.5kV 直流供电准轨列车
+STR_ER25AC                    :{PUSH_COLOUR}{BLUE}25kV 交流{POP_COLOUR}
+STR_ER25AC15DC_AUTOREPLACE    :25kV 交流 / 1.5kV 直流供电准轨列车
+STR_ER25AC15DC_BUILD_CAPTION  :新 25kV 交流 / 1.5kV 直流供电准轨列车
+STR_ER25AC15DC_MENU           :25kV 交流 / 1.5kV 直流供电准轨
+STR_ER25AC15DC_NEW_ENGINE     :25kV 交流 / 1.5kV 直流供电准轨列车
+STR_ER25AC15DC_TOOLBAR        :25kV 交流 / 1.5kV 直流供电准轨
+STR_ER25AC1_MENU              :{BLUE}25kV 交流供电中速准轨
+STR_ER25AC1_TOOLBAR           :25kV 交流供电中速准轨
+STR_ER25AC2_MENU              :{BLUE}25kV 交流供电干线准轨
+STR_ER25AC2_TOOLBAR           :25kV 交流供电干线准轨
+STR_ER25AC3DC_AUTOREPLACE     :25kV 交流 / 3kV 直流供电准轨列车
+STR_ER25AC3DC_BUILD_CAPTION   :新 25kV 交流 / 3kV 直流供电准轨列车
+STR_ER25AC3DC_MENU            :25kV 交流 / 3kV 直流供电准轨
+STR_ER25AC3DC_NEW_ENGINE      :25kV 交流 / 3kV 直流供电准轨列车
+STR_ER25AC3DC_TOOLBAR         :25kV 交流 / 3kV 直流供电准轨
+STR_ER25AC3_MENU              :{BLUE}25kV 交流供电高速准轨
+STR_ER25AC3_TOOLBAR           :25kV 交流供电高速准轨
+STR_ER25AC4_MENU              :{BLUE}25kV 交流供电不限速准轨
+STR_ER25AC4_TOOLBAR           :25kV 交流供电不限速准轨
+STR_ER25ACDDC_AUTOREPLACE     :25kV 交流 / 1.5/3kV 直流供电准轨列车
+STR_ER25ACDDC_BUILD_CAPTION   :新 25kV 交流 / 1.5/3kV 直流供电准轨列车
+STR_ER25ACDDC_MENU            :25kV 交流 / 1.5/3kV 直流供电准轨
+STR_ER25ACDDC_NEW_ENGINE      :25kV 交流 / 1.5/3kV 直流供电准轨列车
+STR_ER25ACDDC_TOOLBAR         :25kV 交流 / 1.5/3kV 直流供电准轨
+STR_ER25AC_AUTOREPLACE        :25kV 交流供电准轨列车
+STR_ER25AC_BUILD_CAPTION      :新 25kV 交流供电准轨列车
+STR_ER25AC_NEW_ENGINE         :25kV 交流供电准轨列车
+STR_ER3DC                     :{PUSH_COLOUR}{RED}3kV 直流{POP_COLOUR}
+STR_ER3DC1_MENU               :{RED}3kV 直流供电中速准轨
+STR_ER3DC1_TOOLBAR            :3kV 直流供电中速准轨
+STR_ER3DC2_MENU               :{RED}3kV 直流供电干线准轨
+STR_ER3DC2_TOOLBAR            :3kV 直流供电干线准轨
+STR_ER3DC3_MENU               :{RED}3kV 直流供电高速准轨
+STR_ER3DC3_TOOLBAR            :3kV 直流供电高速准轨
+STR_ER3DC_AUTOREPLACE         :3kV 直流供电准轨列车
+STR_ER3DC_BUILD_CAPTION       :新 3kV 直流供电准轨列车
+STR_ER3DC_NEW_ENGINE          :3kV 直流供电准轨列车
+STR_ERAAC15DC_AUTOREPLACE     :15/25kV 交流 / 1.5kV 直流供电准轨列车
+STR_ERAAC15DC_BUILD_CAPTION   :新 15/25kV 交流 / 1.5kV 直流供电准轨列车
+STR_ERAAC15DC_MENU            :15/25kV 交流 / 1.5kV 直流供电准轨
+STR_ERAAC15DC_NEW_ENGINE      :15/25kV 交流 / 1.5kV 直流供电准轨列车
+STR_ERAAC15DC_TOOLBAR         :15/25kV 交流 / 1.5kV 直流供电准轨
+STR_ERAACDDC_AUTOREPLACE      :15/25kV 交流 / 1.5/3kV 直流供电准轨列车
+STR_ERAACDDC_BUILD_CAPTION    :15/25kV 交流 / 1.5/3kV 直流供电准轨列车
+STR_ERAACDDC_MENU             :15/25kV 交流 / 1.5/3kV 直流供电准轨
+STR_ERAACDDC_NEW_ENGINE       :15/25kV 交流 / 1.5/3kV 直流供电准轨列车
+STR_ERAACDDC_TOOLBAR          :15/25kV 交流 / 1.5/3kV 直流供电准轨
+STR_ERDDC                     :{PUSH_COLOUR}{CREAM}1.5kV{BLACK}/{RED}3kV 直流{POP_COLOUR}
+STR_ERDDC_AUTOREPLACE         :1.5/3kV 直流供电准轨列车
+STR_ERDDC_BUILD_CAPTION       :新 1.5/3kV 直流供电准轨列车
+STR_ERDDC_MENU                :1.5/3kV 直流供电准轨
+STR_ERDDC_NEW_ENGINE          :1.5/3kV 直流供电准轨列车
+STR_ERDDC_TOOLBAR             :1.5/3kV 直流供电准轨
+STR_NAME_ER15AC0              :15kV 交流供电低速准轨
+STR_NAME_ER15AC1              :15kV 交流供电中速准轨
+STR_NAME_ER15AC2              :15kV 交流供电干线准轨
+STR_NAME_ER15AC3              :15kV 交流供电高速准轨
+STR_NAME_ER15AC4              :15kV 交流供电不限速准轨
+STR_NAME_ER15DC0              :1.5kV 直流供电低速准轨
+STR_NAME_ER15DC1              :1.5kV 直流供电中速准轨
+STR_NAME_ER15DC2              :1.5kV 直流供电干线准轨
+STR_NAME_ER15DC3              :1.5kV 直流供电高速准轨
+STR_NAME_ER25AC1              :25kV 交流供电中速准轨
+STR_NAME_ER25AC15DC           :25kV 交流 / 1.5kV 直流供电准轨
+STR_NAME_ER25AC2              :25kV 交流供电干线准轨
+STR_NAME_ER25AC3              :25kV 交流供电高速准轨
+STR_NAME_ER25AC3DC            :25kV 交流 / 3kV 直流供电准轨
+STR_NAME_ER25AC4              :25kV 交流供电不限速准轨
+STR_NAME_ER25ACDDC            :25kV 交流 / 1.5/3kV 直流供电准轨
+STR_NAME_ER3DC1               :3kV 直流供电中速准轨
+STR_NAME_ER3DC2               :3kV 直流供电干线准轨
+STR_NAME_ER3DC3               :3kV 直流供电高速准轨
+STR_NAME_ERAAC15DC            :15/25kV 交流 / 1.5kV 直流供电准轨
+STR_NAME_ERAACDDC             :15/25kV 交流 / 1.5/3kV 直流供电准轨
+STR_NAME_ERDDC                :1.5/3kV 直流供电准轨
+STR_NAME_RLA0                 :低速准轨
+STR_NAME_RLA1                 :中速准轨
+STR_NAME_RLA2                 :干线准轨
+STR_NAME_RLA3                 :快速准轨
+STR_RAIL_AUTOREPLACE          :准轨列车
+STR_RAIL_BUILD_CAPTION        :新准轨列车
+STR_RAIL_NEW_ENGINE           :准轨列车
+STR_RLA0_MENU                 :低速准轨
+STR_RLA0_TOOLBAR              :低速准轨
+STR_RLA1_MENU                 :中速准轨
+STR_RLA1_TOOLBAR              :中速准轨
+STR_RLA2_MENU                 :干线准轨
+STR_RLA2_TOOLBAR              :干线准轨
+STR_RLA3_MENU                 :快速准轨
+STR_RLA3_TOOLBAR              :快速准轨
+UNUSED_STR_ER15AC             :{PUSH_COLOUR}{LTBLUE}15kV 交流{POP_COLOUR}
+STR_NAME_SBA3                 :第三轨供电准轨
+STR_SBA3_TOOLBAR              :第三轨供电准轨
+STR_SBA3_MENU                 :第三轨供电准轨
+STR_THIRD_BUILD_CAPTION       :新第三轨供电准轨列车
+STR_THIRD_AUTOREPLACE         :第三轨供电准轨列车
+STR_THIRD_NEW_ENGINE          :第三轨供电准轨列车
+STR_NAME_SCA3                 :现代化第三轨供电准轨
+STR_SCA3_TOOLBAR              :现代化第三轨供电准轨
+STR_SCA3_MENU                 :现代化第三轨供电准轨
+STR_NAME_SBA4                 :第四轨供电准轨
+STR_SBA4_TOOLBAR              :第四轨供电准轨
+STR_SBA4_MENU                 :第四轨供电准轨
+STR_FOURTH_BUILD_CAPTION      :新第四轨供电准轨列车
+STR_FOURTH_AUTOREPLACE        :第四轨供电准轨列车
+STR_FOURTH_NEW_ENGINE         :第四轨供电准轨列车
+STR_NAME_SBAY                 :25kV 交流 / 第四轨供电准轨
+STR_SBAY_TOOLBAR              :25kV 交流 / 第四轨供电准轨
+STR_SBAY_MENU                 :25kV 交流 / 第四轨供电准轨
+STR_NAME_SCAZ                 :25kV 交流 / 第三轨供电准轨
+STR_SCAZ_TOOLBAR              :25kV 交流 / 第三轨供电准轨
+STR_SCAZ_MENU                 :25kV 交流 / 第三轨供电准轨
+STR_FOURTH_25AC_BUILD_CAPTION :新 25kV 交流 / 第四轨供电准轨列车
+STR_FOURTH_25AC_AUTOREPLACE   :25kV 交流 / 第四轨供电准轨列车
+STR_FOURTH_25AC_NEW_ENGINE    :25kV 交流 / 第四轨供电准轨列车
+STR_THIRD_25AC_BUILD_CAPTION  :新 25kV 交流 / 第三轨供电准轨列车
+STR_THIRD_25AC_AUTOREPLACE    :25kV 交流 / 第三轨供电准轨列车
+STR_THIRD_25AC_NEW_ENGINE     :25kV 交流 / 第三轨供电准轨列车
+
+STR_NAME_BAAN                 :低速宽轨
+STR_NAME_BBAN                 :中速宽轨
+STR_NAME_BCAN                 :干线宽轨
+STR_NAME_BDAN                 :快速宽轨
+STR_BAAN_TOOLBAR              :低速宽轨
+STR_BBAN_TOOLBAR              :中速宽轨
+STR_BCAN_TOOLBAR              :干线宽轨
+STR_BDAN_TOOLBAR              :快速宽轨
+STR_BAAN_MENU                 :低速宽轨
+STR_BBAN_MENU                 :中速宽轨
+STR_BCAN_MENU                 :干线宽轨
+STR_BDAN_MENU                 :快速宽轨
+
+STR_NAME_BBAA                 :25kV 交流供电中速宽轨
+STR_NAME_BCAA                 :25kV 交流供电干线宽轨
+STR_NAME_BEAA                 :25kV 交流供电高速宽轨
+STR_NAME_BFAA                 :25kV 交流供电不限速宽轨
+STR_BBAA_TOOLBAR              :25kV 交流供电中速宽轨
+STR_BCAA_TOOLBAR              :25kV 交流供电干线宽轨
+STR_BEAA_TOOLBAR              :25kV 交流供电高速宽轨
+STR_BFAA_TOOLBAR              :25kV 交流供电不限速宽轨
+STR_BBAA_MENU                 :25kV 交流供电中速宽轨
+STR_BCAA_MENU                 :25kV 交流供电干线宽轨
+STR_BEAA_MENU                 :25kV 交流供电高速宽轨
+STR_BFAA_MENU                 :25kV 交流供电不限速宽轨
+
+STR_NAME_BBAD                 :3kV 直流供电中速宽轨
+STR_NAME_BCAD                 :3kV 直流供电干线宽轨
+STR_NAME_BDAD                 :3kV 直流供电快速宽轨
+STR_NAME_BEAD                 :3kV 直流供电高速宽轨
+STR_BBAD_TOOLBAR              :3kV 直流供电中速宽轨
+STR_BCAD_TOOLBAR              :3kV 直流供电干线宽轨
+STR_BDAD_TOOLBAR              :3kV 直流供电快速宽轨
+STR_BEAD_TOOLBAR              :3kV 直流供电高速宽轨
+STR_BBAD_MENU                 :3kV 直流供电中速宽轨
+STR_BCAD_MENU                 :3kV 直流供电干线宽轨
+STR_BDAD_MENU                 :3kV 直流供电快速宽轨
+STR_BEAD_MENU                 :3kV 直流供电高速宽轨
+
+STR_NAME_BBA3                 :第三轨供电宽轨
+STR_BBA3_TOOLBAR              :第三轨供电宽轨
+STR_BBA3_MENU                 :第三轨供电宽轨
+
+STR_NAME_BCAE                 :25kV 交流 / 3kV 直流供电宽轨
+STR_BCAE_TOOLBAR              :25kV 交流 / 3kV 直流供电宽轨
+STR_BCAE_MENU                 :25kV 交流 / 3kV 直流供电宽轨
+
+STR_NAME_BBAZ                 :25kV 交流 / 第三轨供电宽轨
+STR_BBAZ_TOOLBAR              :25kV 交流 / 第三轨供电宽轨
+STR_BBAZ_MENU                 :25kV 交流 / 第三轨供电宽轨
+
+STR_NAME_DBAN                 :准/宽双轨距轨道
+STR_DBAN_TOOLBAR              :准/宽双轨距轨道
+STR_DBAN_MENU                 :准/宽双轨距轨道
+STR_NAME_DBAE                 :准/宽双轨距电气化轨道
+STR_DBAE_TOOLBAR              :准/宽双轨距电气化轨道
+STR_DBAE_MENU                 :准/宽双轨距电气化轨道
+
+STR_NAME_NAAN                 :低速窄轨
+STR_NAAN_TOOLBAR              :低速窄轨
+STR_NAAN_MENU                 :低速窄轨
+STR_NAME_NBAN                 :中速窄轨
+STR_NBAN_TOOLBAR              :中速窄轨
+STR_NBAN_MENU                 :中速窄轨
+
+STR_NAME_NBAA                 :交流供电窄轨
+STR_NBAA_TOOLBAR              :交流供电窄轨
+STR_NBAA_MENU                 :交流供电窄轨
+STR_NAME_NCAA                 :现代化交流供电窄轨
+STR_NCAA_TOOLBAR              :现代化交流供电窄轨
+STR_NCAA_MENU                 :现代化交流供电窄轨
+
+STR_NAME_NBAD                 :直流供电窄轨
+STR_NBAD_TOOLBAR              :直流供电窄轨
+STR_NBAD_MENU                 :直流供电窄轨
+STR_NAME_NCAD                 :现代化直流供电窄轨
+STR_NCAD_TOOLBAR              :现代化直流供电窄轨
+STR_NCAD_MENU                 :现代化直流供电窄轨
+
+STR_NAME_NBA3                 :第三轨供电窄轨
+STR_NBA3_TOOLBAR              :第三轨供电窄轨
+STR_NBA3_MENU                 :第三轨供电窄轨
+
+STR_NAME_NBAE                 :交/直流供电窄轨
+STR_NBAE_TOOLBAR              :交/直流供电窄轨
+STR_NBAE_MENU                 :交/直流供电窄轨
+
+STR_NAME_NBAZ                 :直流/第三轨供电窄轨
+STR_NBAZ_TOOLBAR              :直流/第三轨供电窄轨
+STR_NBAZ_MENU                 :直流/第三轨供电窄轨
+
+STR_NAME_dBAN                 :准/窄双轨距轨道
+STR_dBAN_TOOLBAR              :准/窄双轨距轨道
+STR_dBAN_MENU                 :准/窄双轨距轨道
+STR_NAME_dBAE                 :准/窄双轨距电气化轨道
+STR_dBAE_TOOLBAR              :准/窄双轨距电气化轨道
+STR_dBAE_MENU                 :准/窄双轨距电气化轨道
+
+STR_BROAD_RAIL_BUILD_CAPTION      :新宽轨列车
+STR_BROAD_RAIL_AUTOREPLACE        :宽轨列车
+STR_BROAD_RAIL_NEW_ENGINE         :宽轨列车
+STR_BROAD_25AC_BUILD_CAPTION      :新宽轨 25kV 交流供电列车
+STR_BROAD_25AC_AUTOREPLACE        :宽轨 25kV 交流供电列车
+STR_BROAD_25AC_NEW_ENGINE         :宽轨 25kV 交流供电列车
+STR_BROAD_3DC_BUILD_CAPTION       :新宽轨 3kV 直流供电列车
+STR_BROAD_3DC_AUTOREPLACE         :宽轨 3kV 直流供电列车
+STR_BROAD_3DC_NEW_ENGINE          :宽轨 3kV 直流供电列车
+STR_BROAD_3RD_BUILD_CAPTION       :新宽轨第三轨供电列车
+STR_BROAD_3RD_AUTOREPLACE         :宽轨第三轨供电列车
+STR_BROAD_3RD_NEW_ENGINE          :宽轨第三轨供电列车
+STR_BROAD_25AC_3DC_BUILD_CAPTION  :新宽轨 25kV 交流 / 3kV 直流供电列车
+STR_BROAD_25AC_3DC_AUTOREPLACE    :宽轨 25kV 交流 / 3kV 直流供电列车
+STR_BROAD_25AC_3DC_NEW_ENGINE     :宽轨 25kV 交流 / 3kV 直流供电列车
+STR_BROAD_3RD_25AC_BUILD_CAPTION  :新宽轨 25kV 交流 / 第三轨供电列车
+STR_BROAD_3RD_25AC_AUTOREPLACE    :宽轨 25kV 交流 / 第三轨供电列车
+STR_BROAD_3RD_25AC_NEW_ENGINE     :宽轨 25kV 交流 / 第三轨供电列车
+
+STR_STANDARD_BROAD_BUILD_CAPTION        :新准轨/宽轨列车
+STR_STANDARD_BROAD_AUTOREPLACE          :准轨/宽轨列车
+STR_STANDARD_BROAD_NEW_ENGINE           :准轨/宽轨列车
+STR_STANDARD_BROAD_ACDC_BUILD_CAPTION   :新准轨/宽轨电气化列车
+STR_STANDARD_BROAD_ACDC_AUTOREPLACE     :准轨/宽轨电气化列车
+STR_STANDARD_BROAD_ACDC_NEW_ENGINE      :准轨/宽轨电气化列车
+
+STR_NARROW_RAIL_BUILD_CAPTION     :新窄轨列车
+STR_NARROW_RAIL_AUTOREPLACE       :窄轨列车
+STR_NARROW_RAIL_NEW_ENGINE        :窄轨列车
+STR_NARROW_AC_BUILD_CAPTION      :新交流供电窄轨列车
+STR_NARROW_AC_AUTOREPLACE        :交流供电窄轨列车
+STR_NARROW_AC_NEW_ENGINE         :交流供电窄轨列车
+STR_NARROW_DC_BUILD_CAPTION      :新直流供电窄轨列车
+STR_NARROW_DC_AUTOREPLACE        :直流供电窄轨列车
+STR_NARROW_DC_NEW_ENGINE         :直流供电窄轨列车
+STR_NARROW_3RD_BUILD_CAPTION      :新第三轨供电窄轨列车
+STR_NARROW_3RD_AUTOREPLACE        :第三轨供电窄轨列车
+STR_NARROW_3RD_NEW_ENGINE         :第三轨供电窄轨列车
+STR_NARROW_3RD_DC_BUILD_CAPTION      :新直流/第三轨供电窄轨列车
+STR_NARROW_3RD_DC_AUTOREPLACE        :直流/第三轨供电窄轨列车
+STR_NARROW_3RD_DC_NEW_ENGINE         :直流/第三轨供电窄轨列车
+STR_NARROW_ACDC_BUILD_CAPTION    :新交/直流供电窄轨列车
+STR_NARROW_ACDC_AUTOREPLACE      :交/直流供电窄轨列车
+STR_NARROW_ACDC_NEW_ENGINE       :交/直流供电窄轨列车
+
+STR_STANDARD_NARROW_BUILD_CAPTION       :新准轨/窄轨列车
+STR_STANDARD_NARROW_AUTOREPLACE         :准轨/窄轨列车
+STR_STANDARD_NARROW_NEW_ENGINE          :准轨/窄轨列车
+STR_STANDARD_NARROW_ACDC_BUILD_CAPTION  :新准轨/窄轨电气化列车
+STR_STANDARD_NARROW_ACDC_AUTOREPLACE    :准轨/窄轨电气化列车
+STR_STANDARD_NARROW_ACDC_NEW_ENGINE     :准轨/窄轨电气化列车
+# end main block
+#

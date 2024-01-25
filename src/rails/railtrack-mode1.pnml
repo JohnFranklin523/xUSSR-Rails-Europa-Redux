@@ -1,0 +1,298 @@
+// 25kV AC Standard
+if (param_ELRL % 2 == 1) {
+    new_rails(er25ac1   , "SBAA", 1800, ER25AC1  , ER25AC   , standard, all_25AC_standard   , 115,  4, 120 km/h, map_color_ac+1,      0x14, rail1, fences_none, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY))                                   // Electrified rails AC 25kV
+    new_rails(er25ac2   , "SCAA", 1890, ER25AC2  , ER25AC   , standard, all_25AC_standard   , 230,  7, 160 km/h, map_color_ac+2,      0x15, rail2, fences_none, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY))                                   // Electrified Trunk rails AC 25kV
+    new_rails(er25ac3   , "SDAA", 1920, ER25AC3  , ER25AC   , standard, all_25AC_standard   , 360, 11, 200 km/h, map_color_ac+3,      0x16, rail3, fences     , rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING))  // Electrified High-speed rails AC 25kV
+    new_rails(SEAA      , "SEAA", 1950, ER25AC3  , ER25AC   , standard, all_25AC_standard   , 461, 14, 250 km/h, map_color_ac+4,      0x17, rail3, fences     , rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING))  // Electrified High-speed rails AC 25kV
+    new_rails(er25ac4   , "SFAA", 1980, ER25AC4  , ER25AC   , standard, all_25AC_standard   , 640, 19,   0 km/h, map_color_ac+5,      0x18, rail4, fences     , rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING))  // Electrified Unlimited-speed rails AC 25kV
+  electric_rails(er25ac1, erac)
+  electric_rails(er25ac2, erac)
+  electric_rails(er25ac3, erac)
+  electric_rails(SEAA, erac)
+  electric_rails(er25ac4, erac)
+    item (FEAT_RAILTYPES, er25ac1) { property {
+      alternative_railtype_list: ["SBAA", "SBBA", "SBCA", "SBDA", "SBEA",  "SAAA", "SABA", "SACA", "SADA", "SAEA"]; } }
+    item (FEAT_RAILTYPES, er25ac2) { property {
+      alternative_railtype_list: ["SCAA", "SCBA", "SCCA", "SCDA", "SCEA"]; } }
+    item (FEAT_RAILTYPES, er25ac3) { property {
+      alternative_railtype_list: ["SDAA", "SDBA", "SDCA", "SDDA", "SDEA"]; } }
+    item (FEAT_RAILTYPES, SEAA) { property {
+      alternative_railtype_list: ["SEAA", "SEBA", "SECA"]; } }
+    item (FEAT_RAILTYPES, er25ac4) { property {
+      alternative_railtype_list: ["SFAA", "SFBA", "SFCA"]; } }
+}
+
+// 15kV AC Standard
+if (param_ELRL % 4 >= 2) {
+    new_rails(er15ac0   , "SBAa", 1800, ER15AC0  , ER15AC   , standard, all_15AC_standard   ,  75,  3, 120 km/h, map_color_15ac+1,    0x0F, rail1, fences_none, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY))                                   // Electrified Industrial rails AC 15kV
+    new_rails(er15ac1   , "SCAa", 1890, ER15AC1  , ER15AC   , standard, all_15AC_standard   , 115,  4, 160 km/h, map_color_15ac+2,    0x10, rail2, fences_none, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY))                                   // Electrified rails AC 15kV
+    new_rails(er15ac2   , "SDAa", 1920, ER15AC2  , ER15AC   , standard, all_15AC_standard   , 230,  7, 200 km/h, map_color_15ac+3,    0x11, rail3, fences_none, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY))                                   // Electrified Trunk rails AC 15kV
+    new_rails(er15ac3   , "SEAa", 1950, ER15AC3  , ER15AC   , standard, all_15AC_standard   , 461, 14, 250 km/h, map_color_15ac+4,    0x12, rail3, fences     , rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING))  // Electrified High-speed rails AC 15kV
+    new_rails(er15ac4   , "SFAa", 1980, ER15AC4  , ER15AC   , standard, all_15AC_standard   , 640, 19,   0 km/h, map_color_15ac+5,    0x13, rail4, fences     , rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING))  // Electrified Unlimited-speed rails AC 15kV
+  electric_rails(er15ac0, er15ac)
+  electric_rails(er15ac1, er15ac)
+  electric_rails(er15ac2, er15ac)
+  electric_rails(er15ac3, er15ac)
+  electric_rails(er15ac4, er15ac)
+    item (FEAT_RAILTYPES, er15ac0) { property {
+      alternative_railtype_list: ["SAAa", "SABa", "SACa", "SADa", "SAEa", "SBAa", "SBBa", "SBCa", "SBDa", "SBEa"]; } }
+    item (FEAT_RAILTYPES, er15ac1) { property {
+      alternative_railtype_list: ["SCAa", "SCBa", "SCCa", "SCDa", "SCEa"]; } }
+    item (FEAT_RAILTYPES, er15ac2) { property {
+      alternative_railtype_list: ["SDAa", "SDBa", "SDCa", "SDDa", "SDEa"]; } }
+    item (FEAT_RAILTYPES, er15ac3) { property {
+      alternative_railtype_list: ["SEAa", "SEBa", "SECa"]; } }
+    item (FEAT_RAILTYPES, er15ac4) { property {
+      alternative_railtype_list: ["SFAa", "SFBa", "SFCa"]; } }
+}
+
+// 3kV DC Standard
+if (param_ELRL % 8 >= 4) {
+    new_rails(er3dc1    , "SBAD", 1800, ER3DC1   , ER3DC    , standard,  all_3DC_standard    , 128,  5, 120 km/h, map_color_dc+1,      0x0B, rail1, fences_none, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY))                                   // Electrified rails DC 3 kV
+    new_rails(er3dc2    , "SCAD", 1890, ER3DC2   , ER3DC    , standard,  all_3DC_standard    , 240,  8, 160 km/h, map_color_dc+2,      0x0C, rail2, fences_none, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY))                                   // Electrified rails DC 3 kV
+    new_rails(SDAD      , "SDAD", 1920, ER3DC3   , ER3DC    , standard,  all_3DC_standard    , 320, 12, 200 km/h, map_color_dc+3,      0x0D, rail3, fences_none, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING))  // Electrified Trunk rails DC 3kV
+    new_rails(er3dc3    , "SEAD", 1950, ER3DC3   , ER3DC    , standard,  all_3DC_standard    , 512, 16, 250 km/h, map_color_dc+4,      0x0E, rail3, fences     , rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING))  // Electrified High-speed rails DC 3kV
+  electric_rails(er3dc1, erdc)
+  electric_rails(er3dc2, erdc)
+  electric_rails(SDAD, erdc)
+  electric_rails(er3dc3, erdc)
+    item (FEAT_RAILTYPES, er3dc1) { property {
+      alternative_railtype_list: ["SBAD", "SBBD", "SBCD", "SBDD", "SBED", "SAAD", "SABD", "SACD", "SADD", "SAED"]; } }
+    item (FEAT_RAILTYPES, er3dc2) { property {
+      alternative_railtype_list: ["SCAD", "SCBD", "SCCD", "SCDD", "SCED"]; } }
+    item (FEAT_RAILTYPES, SDAD) { property {
+      alternative_railtype_list: ["SDAD", "SDBD", "SDCD", "SDDD", "SDED"]; } }
+    item (FEAT_RAILTYPES, er3dc3) { property {
+      alternative_railtype_list: ["SEAD", "SEBD", "SECD"]; } }
+}
+
+// 1.5kV DC Standard
+if (param_ELRL >= 8) {
+    new_rails(er15dc1   , "SBAd", 1800, ER15DC1  , ER15DC   , standard,  all_15DC_standard   ,  75,  3, 120 km/h, map_color_15dc+1,    0x08, rail1, fences_none, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY))                                   // Electrified Industrial rails DC 1.5kV
+    new_rails(er15dc2   , "SCAd", 1890, ER15DC2  , ER15DC   , standard,  all_15DC_standard   , 100,  4, 160 km/h, map_color_15dc+2,    0x09, rail2, fences_none, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY))                                   // Electrified rails DC 1,5 kV
+    new_rails(er15dc3   , "SEAd", 1950, ER15DC3  , ER15DC   , standard,  all_15DC_standard   , 512, 16, 250 km/h, map_color_15dc+4,    0x0A, rail3, fences     , rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING))  // Electrified High-speed rails DC 1,5kV
+  electric_rails(er15dc1, er15dc)
+  electric_rails(er15dc2, er15dc)
+  electric_rails(er15dc3, er15dc)
+    item (FEAT_RAILTYPES, er15dc1) { property {
+      alternative_railtype_list: ["SAAd", "SABd", "SACd", "SADd", "SAEd", "SBAd", "SBBd", "SBCd", "SBDd", "SBEd"]; } }
+    item (FEAT_RAILTYPES, er15dc2) { property {
+      alternative_railtype_list: ["SCAd", "SCBd", "SCCd", "SCDd", "SCEd"]; } }
+    item (FEAT_RAILTYPES, er15dc3) { property {
+      alternative_railtype_list: ["SDAd", "SDBd", "SDCd", "SDDd", "SDEd", "SEAd", "SEBd", "SECd"]; } }
+}
+
+// 3rd Rail
+if (param_3RDR_4THR % 2 == 1) {
+    new_rails(SBA3      , "SBA3", 1800, SBA3, THIRD, standard,  all_3RDR_standard,  96,  4, 120 km/h, map_color_15dc+6,    0x19, rail1, fences     , rail1_depots, bitmask(RAILTYPE_FLAG_NO_LEVEL_CROSSING))  // 3RDR
+    new_rails(SCA3      , "SCA3", 1950, SCA3, THIRD, standard,  all_3RDR_standard, 144,  6, 160 km/h, map_color_15dc+7,    0x1A, rail2, fences     , rail1_depots, bitmask(RAILTYPE_FLAG_NO_LEVEL_CROSSING))  // Modern 3RDR
+    item (FEAT_RAILTYPES, SBA3) { property {
+      alternative_railtype_list: ["SAA3", "SAB3", "SAC3", "SAD3", "SAE3", "SBA3", "SBB3", "SBC3", "SBD3", "SBE3"];    }}
+    item (FEAT_RAILTYPES, SCA3) { property {
+      alternative_railtype_list: ["SCA3", "SCB3", "SCC3", "SCD3", "SCE3"];    }}
+}
+
+// 4th Rail
+if (param_3RDR_4THR >= 2) {
+    new_rails(SBA4      , "SBA4", 1800, SBA4, FOURTH, standard, all_4THR_standard,  96,  4, 120 km/h, map_color_15dc+8,    0x1B, rail1, fences     , rail1_depots, bitmask(RAILTYPE_FLAG_NO_LEVEL_CROSSING))  // 4THR
+    item (FEAT_RAILTYPES, SBA4) { property {
+      alternative_railtype_list: ["SAA4", "SAB4", "SAC4", "SAD4", "SAE4", "SBA4", "SBB4", "SBC4", "SBD4", "SBE4"];    }}
+}
+
+if ((param_3RDR_4THR % 2 == 1) && (param_ELRL % 2 == 1)) {
+  new_rails(SCAZ      , "SCAZ", 1950, SCAZ      , THIRD_25AC, standard, all_3RDR25AC_standard  , 256,  8, 160 km/h, map_color_double+1,  0x22, rail2, fences, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING))   // 3RDR + 25AC
+  electric_rails(SCAZ, erac)
+    item (FEAT_RAILTYPES, SCAZ) { property {
+      alternative_railtype_list: ["SAAZ", "SABZ", "SACZ", "SADZ", "SAEZ", "SBAZ", "SBBZ", "SBCZ", "SBDZ", "SBEZ", "SCAZ", "SCBZ", "SCCZ", "SCDZ", "SCEZ"];    }}
+}
+
+if ((param_3RDR_4THR >= 2) && (param_ELRL % 2 == 1)) {
+  new_rails(SBAY      , "SBAY", 1950, SBAY      , FOURTH_25AC, standard, all_4THR25AC_standard , 192,  7, 120 km/h, map_color_double+3,  0x23, rail1, fences, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING))   // 4THR + 25AC
+  electric_rails(SBAY, erac)
+    item (FEAT_RAILTYPES, SBAY) { property {
+      alternative_railtype_list: ["SAAY", "SABY", "SACY", "SADY", "SAEY", "SBAY", "SBBY", "SBCY", "SBDY", "SBEY"];    }}
+}
+
+if ((param_ELRL % 8 >= 4) && (param_ELRL % 2 == 1)) {
+  new_rails(er2s      , "ES2S", 1960, ER25AC3DC , ER25AC3DC , standard, all_25AC3DC_standard   , 384, 12, 200 km/h, map_color_double+0,  0x1D, rail3, fences, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY))  // Electrified Trunk rails AC 25 kV + DC 3 kV
+  electric_rails(er2s, erds)
+}
+
+if ((param_ELRL % 8 >= 4) && (param_ELRL >= 8)) {
+  new_rails(er2d      , "ES2D", 1930, ERDDC     , ERDDC     , standard, all_DC_standard      , 256,  8, 160 km/h, map_color_double+2,  0x1C, rail2, fences, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY))  // Electrified rails DC 1,5 kV + DC 3 kV
+  electric_rails(er2d, erds)
+}
+
+if ((param_ELRL % 2 == 1) && (param_ELRL >= 8)) {
+  new_rails(er2ac15dc , "ES2s", 1960, ER25AC15DC, ER25AC15DC, standard, all_25AC15DC_standard, 384, 12, 200 km/h, map_color_double+4,  0x1E, rail3, fences, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY))  // Electrified Trunk rails AC 25 kV + DC 1,5 kV
+  electric_rails(er2ac15dc, erds)
+}
+
+if ((param_ELRL % 2 == 1) && (param_ELRL >= 8) && (param_ELRL % 8 >= 4))  {
+  new_rails(er3acddc  , "ES3D", 1960, ER25ACDDC , ER25ACDDC , standard, all_25ACDC_standard  , 256,  8, 160 km/h, map_color_double+6,  0x1F, rail2, fences, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY))  // Electrified Trunk rails AC 25 kV + DC 3 kV + DC 1,5 kV
+  electric_rails(er3acddc, erds)
+}
+
+if ((param_ELRL % 4 >= 2) && (param_ELRL >= 8) && (param_ELRL % 2 >= 1))  {
+  new_rails(er3aac15dc, "ES3a", 1960, ERAAC15DC , ERAAC15DC , standard, all_AC15DC_standard  , 512, 16, 200 km/h, map_color_double+8,  0x20, rail3, fences, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY))  // Electrified Trunk rails AC 25 kV + AC 15 kV + DC 1,5 kV
+  electric_rails(er3aac15dc, erds)
+}
+
+if ((param_ELRL % 4 >= 2) && (param_ELRL >= 8) && (param_ELRL % 2 >= 1) && (param_ELRL % 8 >= 4))  {
+  new_rails(er4aacddc , "SBAE", 1960, ERAACDDC  , ERAACDDC  , standard, all_ACDC_standard    , 512, 16, 120 km/h, map_color_double+10, 0x21, rail2, fences, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY))  // Electrified Trunk rails AC 25 kV + AC 15 kV + DC 3 kV + DC 1,5 kV
+  electric_rails(er4aacddc, erds)
+    item (FEAT_RAILTYPES, er4aacddc) { property {
+      alternative_railtype_list: ["SAAE", "SABE", "SACE", "SADE", "SAEE", "SBAE", "SBBE", "SBCE", "SBDE", "SBEE"]; } }
+}
+
+
+if (param_broad_RAIL) {
+new_rails(BAAN, "BAAN", 1700, BAAN, BROAD_RAIL,     broad, all_broad          ,  56, 2,  80 km/h, map_color_rail+6 , 0x24, rail0, fences_none, rail1_depots, 0)                                        //  80km/h Broad Unelectrified Rails
+new_rails(BBAN, "BBAN", 1840, BBAN, BROAD_RAIL,     broad, all_broad          , 104, 4, 120 km/h, map_color_rail+7 , 0x25, rail1, fences_none, rail1_depots, 0)                                        // 120km/h Broad Unelectrified Rails
+new_rails(BCAN, "BCAN", 1890, BCAN, BROAD_RAIL,     broad, all_broad          , 144, 6, 160 km/h, map_color_rail+8 , 0x26, rail2, fences_none, rail1_depots, 0)                                        // 160km/h Broad Unelectrified Rails
+new_rails(BDAN, "BDAN", 1920, BDAN, BROAD_RAIL,     broad, all_broad          , 208, 8, 200 km/h, map_color_rail+9 , 0x27, rail3, fences_none, rail1_depots, bitmask(RAILTYPE_FLAG_NO_LEVEL_CROSSING)) // 200km/h Broad Unelectrified Rails
+    item (FEAT_RAILTYPES, BAAN) { property {
+      alternative_railtype_list: ["BAAN", "BABN", "BACN", "BADN", "BAEN"]; } }
+    item (FEAT_RAILTYPES, BBAN) { property {
+      alternative_railtype_list: ["BBAN", "BBBN", "BBCN", "BBDN", "BBEN"]; } }
+    item (FEAT_RAILTYPES, BCAN) { property {
+      alternative_railtype_list: ["BCAN", "BCBN", "BCCN", "BCDN", "BCEN"]; } }
+    item (FEAT_RAILTYPES, BDAN) { property {
+      alternative_railtype_list: ["BDAN", "BDBN", "BDCN", "BDDN", "BDEN"]; } }
+}
+
+if (param_broad_ELRL % 2 == 1) {
+new_rails(BBAA, "BBAA", 1800, BBAA, BROAD_25AC,     broad, all_25AC_broad     , 120,  4, 120 km/h, map_color_ac+7 , 0x28, rail1, fences_none, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY))                                  //   120km/h Broad 25kV AC Rails
+new_rails(BCAA, "BCAA", 1890, BCAA, BROAD_25AC,     broad, all_25AC_broad     , 240,  7, 160 km/h, map_color_ac+8 , 0x29, rail2, fences_none, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY))                                  //   160km/h Broad 25kV AC Rails
+new_rails(BEAA, "BEAA", 1950, BEAA, BROAD_25AC,     broad, all_25AC_broad     , 375, 14, 250 km/h, map_color_ac+10, 0x2A, rail3, fences     , rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING)) //   250km/h Broad 25kV AC Rails
+new_rails(BFAA, "BFAA", 1980, BFAA, BROAD_25AC,     broad, all_25AC_broad     , 660, 19,   0 km/h, map_color_ac+11, 0x2B, rail4, fences     , rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING)) // Unlimited Broad 25kV AC Rails
+    item (FEAT_RAILTYPES, BBAA) { property {
+      alternative_railtype_list: ["BAAA", "BABA", "BACA", "BADA", "BAEA", "BBAA", "BBBA", "BBCA", "BBDA", "BBEA"]; } }
+    item (FEAT_RAILTYPES, BCAA) { property {
+      alternative_railtype_list: ["BCAA", "BCBA", "BCCA", "BCDA", "BCEA", "BDAA", "BDBA", "BDCA", "BDDA", "BDEA"]; } }
+    item (FEAT_RAILTYPES, BEAA) { property {
+      alternative_railtype_list: ["BEAA", "BEBA", "BECA"]; } }
+    item (FEAT_RAILTYPES, BFAA) { property {
+      alternative_railtype_list: ["BFAA", "BFBA", "BFCA"]; } }
+  electric_rails(BBAA, erac)
+  electric_rails(BCAA, erac)
+  electric_rails(BEAA, erac)
+  electric_rails(BFAA, erac)
+}
+
+if (param_broad_ELRL >= 2) {
+new_rails(BBAD, "BBAD", 1800, BBAD, BROAD_3DC ,     broad, all_3DC_broad      , 132,  5, 120 km/h, map_color_dc+7 , 0x2C, rail1, fences_none, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY))                                  //   120km/h Broad  3kV DC Rails
+new_rails(BCAD, "BCAD", 1890, BCAD, BROAD_3DC ,     broad, all_3DC_broad      , 250,  8, 160 km/h, map_color_dc+8 , 0x2D, rail2, fences_none, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY))                                  //   160km/h Broad  3kV DC Rails
+new_rails(BDAD, "BDAD", 1920, BDAD, BROAD_3DC ,     broad, all_3DC_broad      , 332, 12, 200 km/h, map_color_dc+9 , 0x2E, rail3, fences     , rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING)) //   200km/h Broad  3kV DC Rails
+new_rails(BEAD, "BEAD", 1950, BEAD, BROAD_3DC ,     broad, all_3DC_broad      , 523, 16, 250 km/h, map_color_dc+10, 0x2F, rail3, fences     , rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING)) //   250km/h Broad  3kV DC Rails
+    item (FEAT_RAILTYPES, BBAD) { property {
+      alternative_railtype_list: ["BAAD", "BABD", "BACD", "BADD", "BAED", "BBAD", "BBBD", "BBCD", "BBDD", "BBED"]; } }
+    item (FEAT_RAILTYPES, BCAD) { property {
+      alternative_railtype_list: ["BCAD", "BCBD", "BCCD", "BCDD", "BCED"]; } }
+    item (FEAT_RAILTYPES, BDAD) { property {
+      alternative_railtype_list: ["BDAD", "BDBD", "BDCD", "BDDD", "BDED"]; } }
+    item (FEAT_RAILTYPES, BEAD) { property {
+      alternative_railtype_list: ["BEAD", "BEBD", "BECD"]; } }
+  electric_rails(BBAD, erdc)
+  electric_rails(BCAD, erdc)
+  electric_rails(BDAD, erdc)
+  electric_rails(BEAD, erdc)
+}
+
+if (param_broad_3RDR) {
+  new_rails(BBA3, "BBA3", 1800, BBA3, BROAD_3RD ,     broad, all_3RDR_broad     , 100,  4, 120 km/h, map_color_15dc+9, 0x30, rail1, fences, rail1_depots, bitmask(RAILTYPE_FLAG_NO_LEVEL_CROSSING))                             //   120km/h Broad    Third Rails
+    item (FEAT_RAILTYPES, BBA3) { property {
+      alternative_railtype_list: ["BAA3", "BAB3", "BAC3", "BAD3", "BAE3", "BBA3", "BBB3", "BBC3", "BBD3", "BBE3"];    }}
+}
+
+if ((param_broad_3RDR) && (param_broad_ELRL % 2 == 1)) {
+  new_rails(BBAZ, "BBAZ", 1950, BBAZ, BROAD_3RD_25AC, broad, all_3RDR25AC_broad , 200,  8, 120 km/h, map_color_double+7 , 0x32, rail1, fences, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING)) //   120km/h Broad 25AC/3rd Rails
+  electric_rails(BBAZ, erac)
+    item (FEAT_RAILTYPES, BBAZ) { property {
+      alternative_railtype_list: ["BAAZ", "BABZ", "BACZ", "BADZ", "BAEZ", "BBAZ", "BBBZ", "BBCZ", "BBDZ", "BBEZ"]; } }
+}
+
+if (param_broad_ELRL >= 3) {
+  new_rails(BCAE, "BCAE", 1930, BCAE, BROAD_25AC_3DC, broad, all_25AC3DC_broad  , 288,  8, 160 km/h, map_color_double+5 , 0x31, rail2, fences, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING)) //   160km/h Broad 25AC/3DC Rails
+  electric_rails(BCAE, erds)
+    item (FEAT_RAILTYPES, BCAE) { property {
+      alternative_railtype_list: ["BAAE", "BABE", "BACE", "BADE", "BAEE", "BBAE", "BBBE", "BBCE", "BBDE", "BBEE", "BCAE", "BCBE", "BCCE", "BCDE", "BCEE"]; } }
+}
+
+if ((param[3] + param[4] + param[5] >= 1) && (param[0] + param[1] + param[2] >= 1)) {
+  new_rails(DBAN, "DBAN", 1850, DBAN, STANDARD_BROAD      , standard_broad , all_standard_broad      , 150,  6, 120 km/h, map_color_double+9 , 0x33, rail1, fences_none, rail1_depots, 0)                                                                 //  Standard-Broad Dual Gauge Unelectrified Rails
+    item (FEAT_RAILTYPES, DBAN) { property {
+      alternative_railtype_list: ["DAAN", "DABN", "DACN", "DADN", "DAEN", "DBAN", "DBBN", "DBCN", "DBDN", "DBEN"]; } }
+}
+
+if (((param[4] >= 1) || (param[1] >= 1)) && (param[3] + param[4] + param[5] >= 1) && (param[0] + param[1] + param[2] >= 1)) {
+  new_rails(DBAE, "DBAE", 1960, DBAE, STANDARD_BROAD_ACDC , standard_broad , all_standard_broad_ACDC , 768, 24, 120 km/h, map_color_double+11, 0x34, rail1, fences     , rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING))  //  Standard-Broad Dual Guage AC/DC Rails
+  electric_rails(DBAE, erds)
+    item (FEAT_RAILTYPES, DBAE) { property {
+      alternative_railtype_list: ["DAAE", "DABE", "DACE", "DADE", "DAEE", "DBAE", "DBBE", "DBCE", "DBDE", "DBEE"]; } }
+}
+
+
+if (param_NGRL) {
+new_rails(NAAN, "NAAN", 1700, NAAN, NARROW_RAIL,   narrow, all_narrow         ,  32,  2,  80 km/h, map_color_rail+12, 0x35, rail0, fences_none, rail1_depots, 0) //  80km/h Narrow Gauge Unelectrified Rail
+new_rails(NBAN, "NBAN", 1900, NBAN, NARROW_RAIL,   narrow, all_narrow         ,  72,  4, 130 km/h, map_color_rail+13, 0x36, rail1, fences_none, rail1_depots, 0) // 130km/h Narrow Gauge Unelectrified Rail
+    item (FEAT_RAILTYPES, NAAN) { property {
+      alternative_railtype_list: ["NAAN", "NABN", "NACN", "NADN", "NAEN"]; } }
+    item (FEAT_RAILTYPES, NBAN) { property {
+      alternative_railtype_list: ["NBAN", "NBBN", "NBCN", "NBDN", "NBEN"]; } }
+}
+
+if (param_ELNG % 2 == 1) {
+new_rails(NBAA, "NBAA", 1900, NBAA, NARROW_AC  ,   narrow, all_AC_narrow      , 108,  4, 130 km/h, map_color_ac+13  , 0x37, rail1, fences_none, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY)) // 130km/h Narrow Gauge AC Rail
+new_rails(NCAA, "NCAA", 1950, NCAA, NARROW_AC  ,   narrow, all_AC_narrow      , 200,  7, 160 km/h, map_color_ac+14  , 0x38, rail2, fences     , rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY)) // 160km/h Narrow Gauge AC Rail
+  electric_rails(NBAA, erac)
+  electric_rails(NCAA, erac)
+    item (FEAT_RAILTYPES, NBAA) { property {
+      alternative_railtype_list: ["NAAA", "NABA", "NACA", "NADA", "NAEA", "NBAA", "NBBA", "NBCA", "NBDA", "NBEA"]; } }
+    item (FEAT_RAILTYPES, NCAA) { property {
+      alternative_railtype_list: ["NCAA", "NCBA", "NCCA", "NCDA", "NCEA"]; } }
+}
+
+if (param_ELNG >= 2) {
+new_rails(NBAD, "NBAD", 1900, NBAD, NARROW_DC  ,   narrow, all_DC_narrow      , 120,  5, 130 km/h, map_color_dc+13  , 0x39, rail1, fences_none, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY)) // 130km/h Narrow Gauge DC Rail
+new_rails(NCAD, "NCAD", 1950, NCAD, NARROW_DC  ,   narrow, all_DC_narrow      , 216,  8, 160 km/h, map_color_dc+14  , 0x3A, rail2, fences     , rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY)) // 160km/h Narrow Gauge DC Rail
+  electric_rails(NBAD, er15dc)
+  electric_rails(NCAD, er15dc)
+    item (FEAT_RAILTYPES, NBAD) { property {
+      alternative_railtype_list: ["NAAD", "NABD", "NACD", "NADD", "NAED", "NBAD", "NBBD", "NBCD", "NBDD", "NBED"]; } }
+    item (FEAT_RAILTYPES, NCAD) { property {
+      alternative_railtype_list: ["NCAD", "NCBD", "NCCD", "NCDD", "NCED"]; } }
+}
+
+if (param_narrow_3RDR) {
+new_rails(NBA3, "NBA3", 1800, NBA3, NARROW_3RD ,   narrow, all_3RDR_narrow    ,  88,  4, 130 km/h, map_color_15dc+13, 0x3B, rail1, fences     , rail1_depots, bitmask(RAILTYPE_FLAG_NO_LEVEL_CROSSING)) // 130km/h Narrow Gauge 3rd Rail
+    item (FEAT_RAILTYPES, NBA3) { property {
+      alternative_railtype_list: ["NAA3", "NAB3", "NAC3", "NAD3", "NAE3", "NBA3", "NBB3", "NBC3", "NBD3", "NBE3"];    }}
+}
+
+if ((param_narrow_3RDR) && (param_ELNG >= 2)) {
+new_rails(NBAZ, "NBAZ", 1950, NBAZ, NARROW_3RD_DC, narrow, all_3RDRDC_narrow  , 160,  8, 130 km/h, map_color_double+12, 0x3C, rail1, fences   , rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING)) // 130km/h Narrow Gauge DC/3rd Rail
+  electric_rails(NBAZ, er15dc)
+    item (FEAT_RAILTYPES, NBAZ) { property {
+      alternative_railtype_list: ["NAAZ", "NABZ", "NACZ", "NADZ", "NAEZ", "NBAZ", "NBBZ", "NBCZ", "NBDZ", "NBEZ"]; } }
+}
+
+if (param_ELNG >= 3) {
+new_rails(NBAE, "NBAE", 1950, NBAE, NARROW_ACDC,   narrow, all_ACDC_narrow    , 200,  8, 130 km/h, map_color_double+13, 0x3D, rail1, fences   , rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING)) // 130km/h Narrow Gauge  AC/DC Rail
+  electric_rails(NBAE, erds)
+    item (FEAT_RAILTYPES, NBAE) { property {
+      alternative_railtype_list: ["NAAE", "NABE", "NACE", "NADE", "NAEE", "NBAE", "NBBE", "NBCE", "NBDE", "NBEE"]; } }
+}
+
+if ((param[6] + param[7] + param[8] >= 1) && (param[0] + param[1] + param[2] >= 1)) {
+new_rails(dBAN, "dBAN", 1850, dBAN, STANDARD_NARROW     ,  standard_narrow, all_standard_narrow     , 120,  6, 130 km/h, map_color_double+14, 0x3E, rail1, fences_none, rail1_depots, 0)                                                                // Standard-Narrow Dual Gauge Unelectrified Rail
+    item (FEAT_RAILTYPES, dBAN) { property {
+      alternative_railtype_list: ["dAAN", "dABN", "dACN", "dADN", "dAEN", "dBAN", "dBBN", "dBCN", "dBDN", "dBEN"]; } }
+}
+
+if (((param[1] >= 1) || (param[7] >= 1)) && (param[6] + param[7] + param[8] >= 1) && (param[0] + param[1] + param[2] >= 1)){
+new_rails(dBAE, "dBAE", 1950, dBAE, STANDARD_NARROW_ACDC,  standard_narrow, all_standard_narrow_ACDC, 640, 20, 130 km/h, map_color_double+15, 0x3F, rail1, fences     , rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_NO_LEVEL_CROSSING)) // Standard-Narrow Dual Gauge         AC/DC Rail
+  electric_rails(dBAE, erds)
+    item (FEAT_RAILTYPES, dBAE) { property {
+      alternative_railtype_list: ["dAAE", "dABE", "dACE", "dADE", "dAEE", "dBAE", "dBBE", "dBCE", "dBDE", "dBEE"]; } }
+}

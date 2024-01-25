@@ -1,0 +1,173 @@
+ /// header
+
+grf {
+                   grfid: "\5F\5F\04\0C";
+                    name: string(STR_GRF_RAILS_NAME);
+                    desc: string(STR_GRF_RAILS_DESC);
+                     url: string(STR_GRF_URL);
+                 version: REPO_REVISION;
+  min_compatible_version: 1;
+  param 0 {
+    param_RAIL {
+      type: bool;
+      def_value: 1;
+      name: string(STR_PARAM_RAIL_NAME);
+      desc: string(STR_PARAM_RAIL_DESC);
+    }
+  }
+  param 1 {
+    param_ELRL {
+      type: int;
+      name: string(STR_PARAM_ELRL_NAME);
+      desc: string(STR_PARAM_ELRL_DESC);
+      min_value: 0;
+      max_value: 15;
+      def_value: 15;
+      names: {
+         0: string(STR_NONE);
+         1: string(STR_25AC);
+         2: string(STR_15AC);
+         3: string(STR_AC);
+         4: string(STR_3DC);
+         5: string(STR_25AC3DC);
+         6: string(STR_15AC3DC);
+         7: string(STR_AC3DC);
+         8: string(STR_15DC);
+         9: string(STR_25AC15DC);
+         10: string(STR_15AC15DC);
+         11: string(STR_AC15DC);
+         12: string(STR_DC);
+         13: string(STR_25ACDC);
+         14: string(STR_15ACDC);
+         15: string(STR_ALL);
+      };
+    }
+  }
+  param 2 {
+    param_3RDR_4THR {
+      type: int;
+      name: string(STR_PARAM_3RDR_4THR_NAME);
+      desc: string(STR_PARAM_3RDR_4THR_DESC);
+      min_value: 0;
+      max_value: 3;
+      def_value: 3;
+      names: {
+        0: string(STR_NONE);
+        1: string(STR_3RDR);
+        2: string(STR_4THR);
+        3: string(STR_ALL);
+      };
+    }
+  }
+  param 3 {
+    param_broad_RAIL {
+      type: bool;
+      def_value: 1;
+      name: string(STR_PARAM_BROAD_RAIL_NAME);
+      desc: string(STR_PARAM_BROAD_RAIL_DESC);
+    }
+  }
+  param 4 {
+    param_broad_ELRL {
+      type: int;
+      name: string(STR_PARAM_BROAD_ELRL_NAME);
+      desc: string(STR_PARAM_BROAD_ELRL_DESC);
+      min_value: 0;
+      max_value: 3;
+      def_value: 3;
+      names: {
+        0: string(STR_NONE);
+        1: string(STR_25AC);
+        2: string(STR_3DC);
+        3: string(STR_ALL);
+      };
+    }
+  }
+  param 5 {
+    param_broad_3RDR {
+      type: bool;
+      def_value: 1;
+      name: string(STR_PARAM_BROAD_3RDR_NAME);
+      desc: string(STR_PARAM_BROAD_3RDR_DESC);
+    }
+  }
+  param 6 {
+    param_NGRL {
+      type: bool;
+      def_value: 1;
+      name: string(STR_PARAM_NGRL_NAME);
+      desc: string(STR_PARAM_NGRL_DESC);
+    }
+  }
+  param 7 {
+    param_ELNG {
+      type: int;
+      name: string(STR_PARAM_ELNG_NAME);
+      desc: string(STR_PARAM_ELNG_DESC);
+      min_value: 0;
+      max_value: 3;
+      def_value: 3;
+      names: {
+         0: string(STR_NONE);
+         1: string(STR_AC);
+         2: string(STR_DC);
+         3: string(STR_ALL);
+      };
+    }
+  }
+  param 8 {
+    param_narrow_3RDR {
+      type: bool;
+      def_value: 1;
+      name: string(STR_PARAM_narrow_3RDR_NAME);
+      desc: string(STR_PARAM_narrow_3RDR_DESC);
+    }
+  }
+  param 9 {
+    param_construction_cost {
+      type: int;
+      name: string(STR_PARAM_CONSTRUCTION_COST_NAME);
+      desc: string(STR_PARAM_CONSTRUCTION_COST_DESC);
+      min_value: 0;
+      max_value: 8;
+      def_value: 4;
+      names: {
+        0: string(STR_1_16);
+        1: string(STR_1_8);
+        2: string(STR_1_4);
+        3: string(STR_1_2);
+        4: string(STR_1_1);
+        5: string(STR_2_1);
+        6: string(STR_4_1);
+        7: string(STR_8_1);
+        8: string(STR_16_1);
+      };
+    }
+  }
+  param 10 {
+    param_maintenance_cost {
+      type: int;
+      name: string(STR_PARAM_MAINTENANCE_COST_NAME);
+      desc: string(STR_PARAM_MAINTENANCE_COST_DESC);
+      min_value: 0;
+      max_value: 8;
+      def_value: 4;
+      names: {
+        0: string(STR_1_16);
+        1: string(STR_1_8);
+        2: string(STR_1_4);
+        3: string(STR_1_2);
+        4: string(STR_1_1);
+        5: string(STR_2_1);
+        6: string(STR_4_1);
+        7: string(STR_8_1);
+        8: string(STR_16_1);
+      };
+    }
+  }
+}
+
+basecost {
+  PR_BUILD_RAIL: param[9] - 4 ;
+  PR_MAINTENANCE_RAIL: param[10] - 4 ;
+}

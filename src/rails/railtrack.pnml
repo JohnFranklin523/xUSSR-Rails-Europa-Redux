@@ -1,0 +1,504 @@
+ /// railtracks
+
+// TODO disallow low speed trains on high speed railsways
+// by disallowing speed Classes A for 250 kmh rails and ABC for unlim rails
+
+// axle load class (not intended, for fallback only)
+// A = 20 t
+// B = 22,5 t
+// C = 25 t
+// D = 27,5 t
+// E = 30 t
+
+map_color_rail = 0x07;
+map_color_ac = 0x91;
+map_color_15ac = 0x80;
+map_color_dc = 0x73;
+map_color_15dc = 0x2B;  //0xB2;
+map_color_double = 0xBB;
+
+// 2D = D + d
+// 2S = A + D
+// 2s = A + d (TGV)
+// 3a = A + a + d (TGV-POS)
+// 3D = D + d + A (ETR500)
+// 4S = A + D + a + d (ETR575, ICE-3M)
+
+#define all_standard_broad_rails() \
+ "OHLE",  "NORD", \
+ "SAAN",  "SBAN", "SCAN", "SDAN", \
+ "SAAA",  "SBAA", "SCAA", "SDAA", "SEAA", "SFAA", \
+ "SAAa",  "SBAa", "SCAa", "SDAa", "SEAa", "SFAa", \
+ "SAAD",  "SBAD", "SCAD", "SDAD", "SEAD", \
+ "SAAd",  "SBAd", "SCAd", "SDAd", "SEAd", \
+ "SAA3",  "SBA3", "SCA3", \
+ "SAAZ",  "SBAZ", "SCAZ", \
+ "SAAY",  "SBAY", \
+ "SAA4",  "SBA4", \
+ "SAAE",  "SBAE", \
+                  "ES2D", \
+                          "ES2S", \
+                          "ES2s", \
+                          "ES3a", \
+                  "ES3D", \
+ "BAAN",  "BBAN", "BCAN", "BDAN", \
+ "BAAA",  "BBAA", "BCAA", "BDAA", "BEAA", "BFAA", \
+ "BAAD",  "BBAD", "BCAD", "BDAD", "BEAD", \
+ "BAA3",  "BBA3", \
+ "BAAZ",  "BBAZ", \
+ "BAAE",  "BBAE", "BCAE", \
+ "DAAE",  "DBAE", \
+ "DAAN",  "DBAN" \
+
+#define all_standard_narrow_rails() \
+ "OHLE",  "NORD", \
+ "SAAN",  "SBAN", "SCAN", "SDAN", \
+ "SAAA",  "SBAA", "SCAA", "SDAA", "SEAA", "SFAA", \
+ "SAAa",  "SBAa", "SCAa", "SDAa", "SEAa", "SFAa", \
+ "SAAD",  "SBAD", "SCAD", "SDAD", "SEAD", \
+ "SAAd",  "SBAd", "SCAd", "SDAd", "SEAd", \
+ "SAA3",  "SBA3", "SCA3", \
+ "SAAZ",  "SBAZ", "SCAZ", \
+ "SAAY",  "SBAY", \
+ "SAA4",  "SBA4", \
+ "SAAE",  "SBAE", \
+                  "ES2D", \
+                          "ES2S", \
+                          "ES2s", \
+                          "ES3a", \
+                  "ES3D", \
+ "NAAN",  "NBAN", \
+ "NAAA",  "NBAA", "NCAA", \
+ "NAAD",  "NBAD", "NCAD", \
+ "NAA3",  "NBA3", \
+ "NAAZ",  "NBAZ", \
+ "NAAE",  "NBAE", \
+ "dAAN",  "dBAN", \
+ "dAAE",  "dBAE" \
+
+#define all_standard_broad_ACDC_rails() \
+ "OHLE",  "NORD", \
+ "SAAA",  "SBAA", "SCAA", "SDAA", "SEAA", "SFAA", \
+ "SAAa",  "SBAa", "SCAa", "SDAa", "SEAa", "SFAa", \
+ "SAAD",  "SBAD", "SCAD", "SDAD", "SEAD", \
+ "SAAd",  "SBAd", "SCAd", "SDAd", "SEAd", \
+ "SAAZ",  "SBAZ", "SCAZ", \
+ "SAAY",  "SBAY", \
+ "SAAE",  "SBAE", \
+                  "ES2D", \
+                          "ES2S", \
+                          "ES2s", \
+                          "ES3a", \
+                  "ES3D", \
+ "BAAA",  "BBAA", "BCAA", "BDAA", "BEAA", "BFAA", \
+ "BAAD",  "BBAD", "BCAD", "BDAD", "BEAD", \
+ "BAAZ",  "BBAZ", \
+ "BAAE",  "BBAE", "BCAE", \
+ "DAAE",  "DBAE" \
+
+#define all_standard_narrow_ACDC_rails() \
+ "OHLE",  "NORD", \
+ "SAAA",  "SBAA", "SCAA", "SDAA", "SEAA", "SFAA", \
+ "SAAa",  "SBAa", "SCAa", "SDAa", "SEAa", "SFAa", \
+ "SAAD",  "SBAD", "SCAD", "SDAD", "SEAD", \
+ "SAAd",  "SBAd", "SCAd", "SDAd", "SEAd", \
+ "SAAZ",  "SBAZ", "SCAZ", \
+ "SAAY",  "SBAY", \
+ "SAAE",  "SBAE", \
+                  "ES2D", \
+                          "ES2S", \
+                          "ES2s", \
+                          "ES3a", \
+                  "ES3D", \
+ "NAAA",  "NBAA", "NCAA", \
+ "NAAD",  "NBAD", "NCAD", \
+ "NAAZ",  "NBAZ", \
+ "NAAE",  "NBAE", \
+ "dAAE",  "dBAE" \
+
+#define all_standard_rails()                \
+ "OHLE",  "NORD", \
+ "SAAN",  "SBAN", "SCAN", "SDAN", \
+ "SAAA",  "SBAA", "SCAA", "SDAA", "SEAA", "SFAA", \
+ "SAAa",  "SBAa", "SCAa", "SDAa", "SEAa", "SFAa", \
+ "SAAD",  "SBAD", "SCAD", "SDAD", "SEAD", \
+ "SAAd",  "SBAd", "SCAd", "SDAd", "SEAd", \
+ "SAA3",  "SBA3", "SCA3", \
+ "SAAZ",  "SBAZ", "SCAZ", \
+ "SAAY",  "SBAY", \
+ "SAA4",  "SBA4", \
+ "SAAE",  "SBAE", \
+                  "ES2D", \
+                          "ES2S", \
+                          "ES2s", \
+                          "ES3a", \
+                  "ES3D", \
+ "DAAE",  "DBAE", \
+ "DAAN",  "DBAN", \
+ "dAAN",  "dBAN", \
+ "dAAE",  "dBAE" \
+
+//  80     120     160     200     250     inf
+
+#define all_broad_rails()                \
+ "BAAN",  "BBAN", "BCAN", "BDAN", \
+ "BAAA",  "BBAA", "BCAA", "BDAA", "BEAA", "BFAA", \
+ "BAAD",  "BBAD", "BCAD", "BDAD", "BEAD", \
+ "BAA3",  "BBA3", \
+ "BAAZ",  "BBAZ", \
+ "BAAE",  "BBAE", "BCAE", \
+ "DAAE",  "DBAE", \
+ "DAAN",  "DBAN" \
+
+//  80     130     160
+#define all_narrow_rails()                  \
+ "NAAN",  "NBAN", \
+ "NAAA",  "NBAA", "NCAA", \
+ "NAAD",  "NBAD", "NCAD", \
+ "NAA3",  "NBA3", \
+ "NAAZ",  "NBAZ", \
+ "NAAE",  "NBAE", \
+ "dAAN",  "dBAN", \
+ "dAAE",  "dBAE" \
+
+#define all_EL_standard_rails()             \
+ "OHLE",  "NORD", \
+ "SAAA",  "SBAA", "SCAA", "SDAA", "SEAA", "SFAA", \
+ "SAAa",  "SBAa", "SCAa", "SDAa", "SEAa", "SFAa", \
+ "SAAD",  "SBAD", "SCAD", "SDAD", "SEAD", \
+ "SAAd",  "SBAd", "SCAd", "SDAd", "SEAd", \
+ "SAA3",  "SBA3", "SCA3", \
+ "SAAZ",  "SBAZ", "SCAZ", \
+ "SAAY",  "SBAY", \
+ "SAA4",  "SBA4", \
+ "SAAE",  "SBAE", \
+                  "ES2D", \
+                          "ES2S", \
+                          "ES2s", \
+                          "ES3a", \
+                  "ES3D", \
+ "DAAE",  "DBAE", \
+ "dAAE",  "dBAE" \
+
+#define all_EL_broad_rails()                \
+ "BAAA",  "BBAA", "BCAA", "BDAA", "BEAA", "BFAA", \
+ "BAAD",  "BBAD", "BCAD", "BDAD", "BEAD", \
+ "BAA3",  "BBA3", \
+ "BAAZ",  "BBAZ", \
+ "BAAE",  "BBAE", "BCAE", \
+ "DAAE",  "DBAE", \
+
+#define all_EL_narrow_rails() \
+ "NAAA",  "NBAA", "NCAA", \
+ "NAAD",  "NBAD", "NCAD", \
+ "NAA3",  "NBA3", \
+ "NAAZ",  "NBAZ", \
+ "NAAE",  "NBAE", \
+ "dAAE",  "dBAE" \
+
+#define all_25AC_standard_rails() \
+ "OHLE",  "NORD", \
+ "SAAA",  "SBAA", "SCAA", "SDAA", "SEAA", "SFAA", \
+ "SAAZ",  "SBAZ", "SCAZ", \
+ "SAAY",  "SBAY", \
+ "SAAE",  "SBAE", \
+                          "ES2S", \
+                          "ES2s", \
+                          "ES3a", \
+                  "ES3D", \
+ "DAAE",  "DBAE", \
+ "dAAE",  "dBAE" \
+
+#define all_15AC_standard_rails() \
+ "OHLE",  "NORD", \
+ "SAAa",  "SBAa", "SCAa", "SDAa", "SEAa", "SFAa", \
+ "SAAE",  "SBAE", \
+                          "ES3a", \
+ "DAAE",  "DBAE", \
+ "dAAE",  "dBAE" \
+
+#define all_AC_standard_rails() \
+ "OHLE",  "NORD", \
+ "SAAA",  "SBAA", "SCAA", "SDAA", "SEAA", "SFAA", \
+ "SAAZ",  "SBAZ", "SCAZ", \
+ "SAAY",  "SBAY", \
+ "SAAE",  "SBAE", \
+                          "ES2S", \
+                          "ES2s", \
+                          "ES3a", \
+                  "ES3D", \
+ "SAAa",  "SBAa", "SCAa", "SDAa", "SEAa", "SFAa", \
+ "DAAE",  "DBAE", \
+ "dAAE",  "dBAE" \
+
+#define all_3DC_standard_rails() \
+ "SAAD",  "SBAD", "SCAD", "SDAD", "SEAD", \
+ "SAAE",  "SBAE", \
+                  "ES2D", \
+                          "ES2S", \
+                  "ES3D", \
+ "DAAE",  "DBAE", \
+ "dAAE",  "dBAE" \
+
+#define all_15DC_standard_rails() \
+ "SAAd",  "SBAd", "SCAd", "SDAd", "SEAd", \
+ "SAAE",  "SBAE", \
+                  "ES2D", \
+                          "ES2s", \
+                          "ES3a", \
+                  "ES3D", \
+ "DAAE",  "DBAE", \
+ "dAAE",  "dBAE" \
+
+#define all_DC_standard_rails() \
+ "SAAD",  "SBAD", "SCAD", "SDAD", "SEAD", \
+                          "ES2S", \
+ "SAAd",  "SBAd", "SCAd", "SDAd", "SEAd", \
+ "SAAE",  "SBAE", \
+                  "ES2D", \
+                          "ES2s", \
+                          "ES3a", \
+                  "ES3D", \
+ "DAAE",  "DBAE", \
+ "dAAE",  "dBAE" \
+
+#define all_ACDC_standard_rails() \
+ "OHLE",  "NORD", \
+ "SAAA",  "SBAA", "SCAA", "SDAA", "SEAA", "SFAA", \
+ "SAAZ",  "SBAZ", "SCAZ", \
+ "SAAY",  "SBAY", \
+ "SAAE",  "SBAE", \
+                          "ES2S", \
+                          "ES2s", \
+                          "ES3a", \
+                  "ES3D", \
+ "SAAa",  "SBAa", "SCAa", "SDAa", "SEAa", "SFAa", \
+ "SAAD",  "SBAD", "SCAD", "SDAD", "SEAD", \
+ "SAAd",  "SBAd", "SCAd", "SDAd", "SEAd", \
+                  "ES2D", \
+ "DAAE",  "DBAE", \
+ "dAAE",  "dBAE" \
+
+#define all_25AC3DC_standard_rails() \
+ "OHLE",  "NORD", \
+ "SAAA",  "SBAA", "SCAA", "SDAA", "SEAA", "SFAA", \
+ "SAAZ",  "SBAZ", "SCAZ", \
+ "SAAY",  "SBAY", \
+                          "ES2s", \
+                          "ES3a", \
+ "SAAD",  "SBAD", "SCAD", "SDAD", "SEAD", \
+ "SAAE",  "SBAE", \
+                  "ES2D", \
+                          "ES2S", \
+                  "ES3D", \
+ "DAAE",  "DBAE", \
+ "dAAE",  "dBAE" \
+
+#define all_25AC15DC_standard_rails() \
+ "OHLE",  "NORD", \
+ "SAAA",  "SBAA", "SCAA", "SDAA", "SEAA", "SFAA", \
+ "SAAZ",  "SBAZ", "SCAZ", \
+ "SAAY",  "SBAY", \
+                          "ES2S", \
+ "SAAd",  "SBAd", "SCAd", "SDAd", "SEAd", \
+ "SAAE",  "SBAE", \
+                  "ES2D", \
+                          "ES2s", \
+                          "ES3a", \
+                  "ES3D", \
+ "DAAE",  "DBAE", \
+ "dAAE",  "dBAE" \
+
+#define all_AC15DC_standard_rails() \
+ "OHLE",  "NORD", \
+ "SAAA",  "SBAA", "SCAA", "SDAA", "SEAA", "SFAA", \
+ "SAAZ",  "SBAZ", "SCAZ", \
+ "SAAY",  "SBAY", \
+                          "ES2S", \
+ "SAAa",  "SBAa", "SCAa", "SDAa", "SEAa", "SFAa", \
+ "SAAd",  "SBAd", "SCAd", "SDAd", "SEAd", \
+ "SAAE",  "SBAE", \
+                  "ES2D", \
+                          "ES2s", \
+                          "ES3a", \
+                  "ES3D", \
+ "DAAE",  "DBAE", \
+ "dAAE",  "dBAE" \
+
+#define all_25ACDC_standard_rails() \
+ "OHLE",  "NORD", \
+ "SAAA",  "SBAA", "SCAA", "SDAA", "SEAA", "SFAA", \
+ "SAAZ",  "SBAZ", "SCAZ", \
+ "SAAY",  "SBAY", \
+                          "ES2S", \
+ "SAAD",  "SBAD", "SCAD", "SDAD", "SEAD", \
+ "SAAd",  "SBAd", "SCAd", "SDAd", "SEAd", \
+ "SAAE",  "SBAE", \
+                  "ES2D", \
+                          "ES2s", \
+                          "ES3a", \
+                  "ES3D", \
+ "DAAE",  "DBAE", \
+ "dAAE",  "dBAE" \
+
+#define all_3RDR_standard_rails() \
+ "SAA3",  "SBA3", "SCA3", \
+ "SAAZ",  "SBAZ", "SCAZ" \
+
+#define all_3RDR25AC_standard_rails() \
+ "OHLE",  "NORD", \
+ "SAAA",  "SBAA", "SCAA", "SDAA", "SEAA", "SFAA", \
+ "SAA3",  "SBA3", "SCA3", \
+ "SAAZ",  "SBAZ", "SCAZ", \
+ "SAAY",  "SBAY", \
+ "SAAE",  "SBAE", \
+                          "ES2S", \
+                          "ES2s", \
+                          "ES3a", \
+                  "ES3D", \
+ "DAAE",  "DBAE", \
+ "dAAE",  "dBAE" \
+
+#define all_4THR25AC_standard_rails() \
+ "OHLE",  "NORD", \
+ "SAAA",  "SBAA", "SCAA", "SDAA", "SEAA", "SFAA", \
+ "SAA4",  "SBA4", \
+ "SAAZ",  "SBAZ", "SCAZ", \
+ "SAAY",  "SBAY", \
+ "SAAE",  "SBAE", \
+                          "ES2S", \
+                          "ES2s", \
+                          "ES3a", \
+                  "ES3D", \
+ "DAAE",  "DBAE", \
+ "dAAE",  "dBAE" \
+
+#define all_4THR_standard_rails() \
+ "SAA4",  "SBA4", \
+ "SAAY",  "SBAY" \
+
+#define all_25AC_broad_rails()             \
+ "BAAA",  "BBAA", "BCAA", "BDAA", "BEAA", "BFAA", \
+ "BAAZ",  "BBAZ", \
+ "BAAE",  "BBAE", "BCAE", \
+ "DAAE",  "DBAE" \
+
+#define all_3DC_broad_rails()      \
+ "BAAD",  "BBAD", "BCAD", "BDAD", "BEAD", \
+ "BAAE",  "BBAE", "BCAE", \
+ "DAAE",  "DBAE" \
+
+#define all_25AC3DC_broad_rails()              \
+ "BAAA",  "BBAA", "BCAA", "BDAA", "BEAA", "BFAA", \
+ "BAAZ",  "BBAZ", \
+ "BAAD",  "BBAD", "BCAD", "BDAD", "BEAD", \
+ "BAAE",  "BBAE", "BCAE", \
+ "DAAE",  "DBAE" \
+
+#define all_3RDR_broad_rails() \
+ "BAA3",  "BBA3", \
+ "BAAZ",  "BBAZ" \
+
+#define all_3RDR25AC_broad_rails() \
+ "BAAA",  "BBAA", "BCAA", "BDAA", "BEAA", "BFAA", \
+ "BAAZ",  "BBAZ", \
+ "BAAE",  "BBAE", "BCAE", \
+ "DAAE",  "DBAE", \
+ "BAA3",  "BBA3", \
+
+#define all_AC_narrow_rails() \
+ "NAAA",  "NBAA", "NCAA", \
+ "NAAE",  "NBAE", \
+ "dAAE",  "dBAE" \
+
+#define all_DC_narrow_rails() \
+ "NAAD",  "NBAD", "NCAD", \
+ "NAAZ",  "NBAZ", \
+ "NAAE",  "NBAE", \
+ "dAAE",  "dBAE" \
+
+#define all_ACDC_narrow_rails() \
+ "NAAD",  "NBAD", "NCAD", \
+ "NAAA",  "NBAA", "NCAA", \
+ "NAAE",  "NBAE", \
+ "NAAZ",  "NBAZ", \
+ "dAAE",  "dBAE" \
+
+#define all_3RDR_narrow_rails() \
+ "NAA3",  "NBA3", \
+ "NAAZ",  "NBAZ" \
+
+#define all_3RDRDC_narrow_rails() \
+ "NAAD",  "NBAD", "NCAD", \
+ "NAA3",  "NBA3", \
+ "NAAZ",  "NBAZ", \
+ "NAAE",  "NBAE", \
+ "dAAE",  "dBAE" \
+
+#define new_rails(rail_name, rail_label, year, strname, strnamebase, gauge, powered, cost, RCcost, speed, colour, sort_oder, rails_graphics, fences_graphics, depots_graphics, flags)  \
+item (FEAT_RAILTYPES, rail_name) {                                                                                                                                                    \
+  property {                                                                                                                                                                          \
+                       label: rail_label;                                                                                                                                             \
+           introduction_date: date(year, 1, 1);                                                                                                                                       \
+                        name: string(STR_NAME_##strname);                                                                                                                             \
+             toolbar_caption: string(STR_##strname##_TOOLBAR);                                                                                                                        \
+                   menu_text: string(STR_##strname##_MENU);                                                                                                                           \
+        build_window_caption: string(STR_##strnamebase##_BUILD_CAPTION);                                                                                                              \
+            autoreplace_text: string(STR_##strnamebase##_AUTOREPLACE);                                                                                                                \
+             new_engine_text: string(STR_##strnamebase##_NEW_ENGINE);                                                                                                                 \
+    compatible_railtype_list: [all_##gauge##_rails()];                                                                                                                                    \
+       powered_railtype_list: [powered##_rails()];                                                                                                                              \
+              railtype_flags: flags;                                                                                                                                                  \
+      curve_speed_multiplier: 1;                                                                                                                                                      \
+            station_graphics: RAILTYPE_STATION_NORMAL;                                                                                                                                \
+           construction_cost: cost;                                                                                                                                                   \
+            maintenance_cost: RCcost;                                                                                                                                                 \
+                 speed_limit: speed;                                                                                                                                                  \
+          acceleration_model: ACC_MODEL_RAIL;                                                                                                                                         \
+                  map_colour: colour;                                                                                                                                                 \
+                  sort_order: sort_oder;                                                                                                                                              \
+  }                                                                                                                                                                                   \
+  graphics {                                                                                                                                                                          \
+    bridge_surfaces: get_##rails_graphics##_bridge_surfaces;                                                                                                                          \
+             depots: depots_graphics;                                                                                                                                                 \
+             fences: fences_graphics;                                                                                                                                                 \
+                gui: rails_graphics##_gui;                                                                                                                                            \
+    level_crossings: get_##rails_graphics##_level_crossings;                                                                                                                          \
+      track_overlay: get_##rails_graphics##_track_overlay;                                                                                                                            \
+            tunnels: get_##rails_graphics##_tunnels;                                                                                                                                  \
+           underlay: get_##rails_graphics##_underlay;                                                                                                                                 \
+  }                                                                                                                                                                                   \
+}                                                                                                                                                                                     \
+
+#define electric_rails(rail_name, catenary_graphics)       \
+item (FEAT_RAILTYPES, rail_name) {                         \
+  graphics {                                               \
+    catenary_pylons: catenary_graphics##_catenary_pylons;  \
+      catenary_wire: catenary_graphics##_catenary_wire;    \
+  }                                                        \
+}                                                          \
+
+// never rails
+if (param[0]+param[1]+param[2]+param[3]+param[4]+param[5]+param[6]+param[7]+param[8]>0) {
+        new_rails(rlan, "RAIL", 1700, RLA1, RAIL, standard, all_standard , 256,  8, 250 km/h, map_color_rail+2, 0x00, rail1, fences     , rail1_depots, bitmask(RAILTYPE_FLAG_HIDDEN))                              // RAIL
+        new_rails(elrn, "ELRL", 1700, ERAACDDC, ERAACDDC, standard, all_EL_standard, 256, 8, 250 km/h, map_color_rail+4, 0x01, rail1, fences, rail1_depots, bitmask(RAILTYPE_FLAG_CATENARY, RAILTYPE_FLAG_HIDDEN))  // ELRL
+    item (FEAT_RAILTYPES, rlan) { property {
+      alternative_railtype_list: ["RLAN"]; } }
+}
+
+if (param_RAIL) {
+    new_rails(rla0, "SAAN", 1700, RLA0, RAIL, standard, all_standard,  48,  2, 80 km/h, map_color_rail+0, 0x04, rail0, fences_none, rail1_depots, 0)                                          // Unelectrified Industrial rails
+    new_rails(rla1, "SBAN", 1840, RLA1, RAIL, standard, all_standard,  96,  4, 120 km/h, map_color_rail+1, 0x05, rail1, fences_none, rail1_depots, 0)                                         // Unelectrified rails
+    new_rails(rla2, "SCAN", 1890, RLA2, RAIL, standard, all_standard, 128,  6, 160 km/h, map_color_rail+2, 0x06, rail2, fences_none, rail1_depots, 0)                                         // Unelectrified Trunk rails
+    new_rails(rla3, "SDAN", 1920, RLA3, RAIL, standard, all_standard, 192,  8, 200 km/h, map_color_rail+3, 0x07, rail3, fences     , rail1_depots, bitmask(RAILTYPE_FLAG_NO_LEVEL_CROSSING))  // Unelectrified 200km/h rails
+    item (FEAT_RAILTYPES, rla0) { property {
+      alternative_railtype_list: ["SAAN", "SABN", "SACN", "SADN", "SAEN"]; } }
+    item (FEAT_RAILTYPES, rla1) { property {
+      alternative_railtype_list: ["SBAN", "SBBN", "SBCN", "SBDN", "SBEN"]; } }
+    item (FEAT_RAILTYPES, rla2) { property {
+      alternative_railtype_list: ["SCAN", "SCBN", "SCCN", "SCDN", "SCEN"]; } }
+    item (FEAT_RAILTYPES, rla3) { property {
+      alternative_railtype_list: ["SDAN", "SDBN", "SDCN", "SDDN", "SDEN"]; } }
+ }
+
+  #include "railtrack-mode1.pnml"
